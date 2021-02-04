@@ -7,15 +7,15 @@ import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var button: Button
+    lateinit var todobutton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button=findViewById(R.id.button)
+        todobutton=findViewById(R.id.todobutton)
 
-        button.setOnClickListener { view ->
+        todobutton.setOnClickListener { view ->
             startActivity<TodoActivity>()
         }
     }
