@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhisperApp">
         <activity android:name=".EditTodoActivity"></activity>
+        <activity android:name=".PortRegActivity"/>
+        <activity android:name=".PortMainActivity"/>
         <activity
             android:name=".TodoActivity"
             android:label="@string/title_activity_todo"
