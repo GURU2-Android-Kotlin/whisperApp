@@ -1,8 +1,14 @@
 package com.example.whisperapp
 
+import android.content.Context
+import android.content.Intent
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -14,7 +20,7 @@ import io.realm.kotlin.where
 
 class PortRegActivity : AppCompatActivity() {
 
-    //lateinit var imageView_port: ImageView
+    lateinit var imageView_port: ImageView
     lateinit var edtTitle_port: EditText
     lateinit var edtDate_port: EditText
     lateinit var edtContent_port: EditText
@@ -37,7 +43,7 @@ class PortRegActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg_port)
 
-        //imageView_port = findViewById<ImageView>(R.id.imageView_port)
+        imageView_port = findViewById<ImageView>(R.id.imageView_port)
         edtTitle_port = findViewById(R.id.edtTitle_port)
         edtDate_port = findViewById(R.id.edtDate_port)
         edtContent_port = findViewById(R.id.edtContent_port)
@@ -51,6 +57,54 @@ class PortRegActivity : AppCompatActivity() {
         } else {
             updateMode_port(id)
         }
+    }
+
+    private fun loadImage() {
+        imageView_port.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+
+            startActivityForResult(Intent.createChooser(intent, "Load Picture"),Gallery);
+        }
+    }
+
+    private fun getFullPathFromUri(ctx: Context, fileUri: Uri?): String? {
+        var fullPath: String? = null
+        val column = "_data"
+        var cursor: Cursor = fileUri?.let { ctx.getContentResolver().query(it, null, null, null, null) }!!
+        if (cursor != null) {
+            cursor.moveToFirst()
+            var document_id: String = cursor.getString(0)
+            if (document_id == null) {
+                for (i in 0 until cursor.getColumnCount()) {
+                    if (column.equals(cursor.getColumnName(i), ignoreCase = true)) {
+                        fullPath = cursor.getString(i)
+                        break
+                    }
+                }
+            } else {
+                document_id = document_id.substring(document_id.lastIndexOf(":") + 1)
+                cursor.close()
+                val projection = arrayOf(column)
+                try {
+                    cursor = ctx.getContentResolver().query(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        projection,
+                        MediaStore.Images.Media._ID + " = ? ",
+                        arrayOf(document_id),
+                        null
+                    )!!
+                    if (cursor != null) {
+                        cursor.moveToFirst()
+                        fullPath = cursor.getString(cursor.getColumnIndexOrThrow(column))
+                    }
+                } finally {
+                    if (cursor != null) cursor.close()
+                }
+            }
+        }
+        return fullPath
     }
 
     private fun insertMode_port() {

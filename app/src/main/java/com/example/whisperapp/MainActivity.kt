@@ -3,13 +3,14 @@ package com.example.whisperapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var todobutton: Button
-    lateinit var btn_port: Button
-    lateinit var eventBtn:Button
+    lateinit var todobutton: ImageButton
+    lateinit var btn_port: ImageButton
+    lateinit var eventBtn :ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

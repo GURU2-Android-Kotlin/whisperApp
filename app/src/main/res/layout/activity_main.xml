@@ -4,72 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <Button
+
+    <ImageButton
         android:id="@+id/todobutton"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="71dp"
+        android:layout_height="57dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
-        android:text="Todo List"
+        app:srcCompat="@drawable/list_button"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button2"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="53dp"
         android:layout_marginTop="200dp"
-        android:text="오늘의 추천"
+        app:srcCompat="@drawable/recommend"
         app:layout_constraintEnd_toStartOf="@+id/eventBtn"
         app:layout_constraintStart_toEndOf="@+id/todobutton"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/eventBtn"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
-        android:text="대외 활동"
+        app:srcCompat="@drawable/external_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button4"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="커뮤니티 "
+        app:srcCompat="@drawable/community_button"
         app:layout_constraintEnd_toStartOf="@+id/btn_port"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/todobutton" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_port"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="포트폴리오"
+        android:layout_width="72dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/portfolio_button"
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button6"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="52dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:text="내 정보"
+        app:srcCompat="@drawable/my_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_port"
         app:layout_constraintTop_toBottomOf="@+id/eventBtn" />
@@ -78,28 +80,29 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="186dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/edge"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277"
-        android:src="@drawable/softwaremaestro" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/banner"/>
 
     <TextView
         android:id="@+id/todomainTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edge"
-        android:text="To-do List"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
         android:backgroundTint="#f3f4f5"
-        android:textAlignment="center"
+        android:text="To-do List"
+        android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_port" />
 
@@ -122,7 +125,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/todoDateTextView" />
 
@@ -131,10 +134,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:background="@drawable/edge"
-        android:text="오늘의 추천"
+        android:background="@color/white"
         android:backgroundTint="#f3f4f5"
-        android:textAlignment="center"
+        android:text="오늘의 추천"
+        android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,12 +150,75 @@
         android:layout_width="409dp"
         android:layout_height="82dp"
         android:text="백준에서 silver 5문제를 풀어볼까요?"
-        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="To-do List"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오늘의 추천"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:text="행사/공모전"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventBtn" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="3dp"
+        android:text="커뮤니티"
+        app:layout_constraintBottom_toTopOf="@+id/todomainTextView"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="1dp"
+        android:text="포트폴리오"
+        app:layout_constraintBottom_toTopOf="@+id/todomainTextView"
+        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/btn_port" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="4dp"
+        android:text="내 정보"
+        app:layout_constraintBottom_toTopOf="@+id/todomainTextView"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
