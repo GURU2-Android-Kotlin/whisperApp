@@ -20,6 +20,10 @@
         <activity android:name=".AddPostActivity"/>
         <activity android:name=".WebViewActivity"/>
         <activity android:name=".EventListActivity"/>
+        <activity android:name=".MainCommuActivity" />
+        <activity android:name=".AddCommentActivity"/>
+        <activity android:name=".ContentActivity" />
+        <activity android:name=".RegCommuActivity" />
         <activity
             android:name=".TodoActivity"
             android:label="@string/title_activity_todo"
