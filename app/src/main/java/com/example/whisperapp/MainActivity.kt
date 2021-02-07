@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var todobutton: Button
     lateinit var btn_port: Button
+    lateinit var eventBtn:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,12 +17,16 @@ class MainActivity : AppCompatActivity() {
 
         todobutton=findViewById(R.id.todobutton)
         btn_port = findViewById(R.id.btn_port)
+        eventBtn=findViewById(R.id.eventBtn)
 
         todobutton.setOnClickListener { view ->
             startActivity<TodoActivity>()
         }
         btn_port.setOnClickListener {view ->
             startActivity<PortMainActivity>()
+        }
+        eventBtn.setOnClickListener { view->
+            startActivity<EventListActivity>()
         }
     }
 }

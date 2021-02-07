@@ -2,21 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.whisperapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="위스퍼"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhisperApp">
         <activity android:name=".EditTodoActivity"></activity>
         <activity android:name=".PortRegActivity"/>
         <activity android:name=".PortMainActivity"/>
+        <activity android:name=".EventItemActivity"/>
+        <activity android:name=".AddPostActivity"/>
+        <activity android:name=".WebViewActivity"/>
+        <activity android:name=".EventListActivity"/>
         <activity
             android:name=".TodoActivity"
             android:label="@string/title_activity_todo"
             android:theme="@style/Theme.WhisperApp.NoActionBar" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
