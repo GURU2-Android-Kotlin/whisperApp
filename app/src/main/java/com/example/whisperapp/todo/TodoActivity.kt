@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.whisperapp.R
 import com.example.whisperapp.TodoListAdapter
 import io.realm.Realm
+import io.realm.RealmConfiguration
 import io.realm.Sort
+import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.where
 import org.jetbrains.anko.startActivity
 
@@ -15,7 +17,14 @@ class TodoActivity : AppCompatActivity() {
 
     lateinit var fab:FloatingActionButton
     lateinit var listView: ListView
-    val realm = Realm.getDefaultInstance()
+    val realm = try {
+        val config = RealmConfiguration.Builder()
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.getInstance(config)
+    } catch (ex: RealmMigrationNeededException) {
+        Realm.getDefaultInstance()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

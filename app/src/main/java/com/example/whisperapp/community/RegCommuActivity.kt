@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.whisperapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.realm.Realm
+import io.realm.RealmConfiguration
+import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
 
@@ -17,7 +19,14 @@ class RegCommuActivity : AppCompatActivity() {
     lateinit var edtContent_commu : EditText
     lateinit var doneFab_commu : FloatingActionButton
 
-    val realm = Realm.getDefaultInstance()
+    val realm = try {
+        val config = RealmConfiguration.Builder()
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.getInstance(config)
+    } catch (ex: RealmMigrationNeededException) {
+        Realm.getDefaultInstance()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

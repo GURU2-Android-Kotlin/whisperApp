@@ -9,6 +9,8 @@ import android.widget.TextView
 import com.example.whisperapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.realm.Realm
+import io.realm.RealmConfiguration
+import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
 import org.jetbrains.anko.alert
@@ -24,7 +26,14 @@ class EditTodoActivity : AppCompatActivity() {
     lateinit var todoEditText: EditText
     lateinit var subEditText: EditText
 
-    val realm= Realm.getDefaultInstance() //Realm 인스턴스 얻기
+    val realm= try {
+        val config = RealmConfiguration.Builder()
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.getInstance(config)
+    } catch (ex: RealmMigrationNeededException) {
+        Realm.getDefaultInstance()
+    } //Realm 인스턴스 얻기
     val calendar: Calendar = java.util.Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {

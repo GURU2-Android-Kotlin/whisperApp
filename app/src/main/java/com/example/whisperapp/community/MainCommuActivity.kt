@@ -7,14 +7,23 @@ import android.widget.ListView
 import com.example.whisperapp.CommuListAdapter
 import com.example.whisperapp.R
 import io.realm.Realm
+import io.realm.RealmConfiguration
 import io.realm.Sort
+import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.where
 import org.jetbrains.anko.startActivity
 
 class MainCommuActivity : AppCompatActivity() {
 
     lateinit var fab_comu:FloatingActionButton
-    val realm = Realm.getDefaultInstance()
+    val realm = try {
+        val config = RealmConfiguration.Builder()
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.getInstance(config)
+    } catch (ex: RealmMigrationNeededException) {
+        Realm.getDefaultInstance()
+    }
     lateinit var listView_commu: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {

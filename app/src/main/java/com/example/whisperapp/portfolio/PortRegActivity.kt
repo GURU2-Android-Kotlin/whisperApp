@@ -62,7 +62,7 @@ class PortRegActivity : AppCompatActivity() {
 
     private fun insertMode_port() {
         deleteFab_port.visibility = View.GONE
-        doneFab_port.setOnClickListener { insertTodo_port() }
+        doneFab_port.setOnClickListener { insertPort() }
     }
 
     private fun updateMode_port(id: Long) {
@@ -73,8 +73,8 @@ class PortRegActivity : AppCompatActivity() {
         edtContent_port.setText(listdb.content)
         edtMemo_port.setText(listdb.memo)
 
-        doneFab_port.setOnClickListener { updateTodo_port(id) }
-        deleteFab_port.setOnClickListener { deleteTodo_port(id) }
+        doneFab_port.setOnClickListener { updatePort(id) }
+        deleteFab_port.setOnClickListener { deletePort(id) }
     }
 
     override fun onDestroy() {
@@ -82,7 +82,7 @@ class PortRegActivity : AppCompatActivity() {
         realm1.close()
     }
 
-    private fun insertTodo_port() {
+    private fun insertPort() {
         realm1.beginTransaction()
 
         val newItem = realm1.createObject<portDB>(nextId())
@@ -93,13 +93,12 @@ class PortRegActivity : AppCompatActivity() {
         newItem.memo = edtMemo_port.text.toString()
 
         realm1.commitTransaction()
-        Toast.makeText(this, "저장되었습니다", Toast.LENGTH_SHORT).show()
         alert("저장되었습니다") {
             yesButton { finish() }
         }.show()
     }
 
-    private fun updateTodo_port(id: Long) {
+    private fun updatePort(id: Long) {
         realm1.beginTransaction()
 
         val updateItem = realm1.where<portDB>().equalTo("id", id).findFirst()!!
@@ -110,20 +109,18 @@ class PortRegActivity : AppCompatActivity() {
         updateItem.memo = edtMemo_port.text.toString()
 
         realm1.commitTransaction()
-        Toast.makeText(this, "변경되었습니다", Toast.LENGTH_SHORT).show()
         alert("변경되었습니다") {
             yesButton { finish() }
         }.show()
     }
 
-    private fun deleteTodo_port(id: Long) {
+    private fun deletePort(id: Long) {
         realm1.beginTransaction()
 
         val deleteItem = realm1.where<portDB>().equalTo("id", id).findFirst()!!
         deleteItem.deleteFromRealm()
 
         realm1.commitTransaction()
-        Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_SHORT).show()
         alert("삭제되었습니다") {
             yesButton { finish() }
         }.show()

@@ -17,21 +17,31 @@ import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var todoButton: ImageButton
     lateinit var btn_port : ImageButton
     lateinit var btn_awards : ImageButton
+    lateinit var btn_commu : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        todoButton = findViewById(R.id.todoButton)
         btn_port = findViewById(R.id.btn_port)
         btn_awards = findViewById(R.id.btn_awards)
+        btn_commu = findViewById(R.id.btn_commu)
 
+        todoButton.setOnClickListener { view ->
+            startActivity<TodoActivity>()
+        }
         btn_port.setOnClickListener { view ->
             startActivity<PortMainActivity>()
         }
         btn_awards.setOnClickListener { view ->
             startActivity<AwardsActivity>()
+        }
+        btn_commu.setOnClickListener { view ->
+            startActivity<MainCommuActivity>()
         }
     }
 

@@ -6,6 +6,8 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.whisperapp.R
 import io.realm.Realm
+import io.realm.RealmConfiguration
+import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
 import org.jetbrains.anko.alert
@@ -18,7 +20,14 @@ class AddCommentActivity : AppCompatActivity() {
     lateinit var button:Button
     lateinit var button2:Button
 
-    val realm1= Realm.getDefaultInstance()
+    val realm1 = try {
+        val config = RealmConfiguration.Builder()
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.getInstance(config)
+    } catch (ex: RealmMigrationNeededException) {
+        Realm.getDefaultInstance()
+    }
     val calendar: Calendar = java.util.Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,7 +8,9 @@ import android.widget.TextView
 import com.example.whisperapp.CommentListAdapter
 import com.example.whisperapp.R
 import io.realm.Realm
+import io.realm.RealmConfiguration
 import io.realm.Sort
+import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.where
 import org.jetbrains.anko.startActivity
 
@@ -20,7 +22,14 @@ class ContentActivity : AppCompatActivity() {
     lateinit var commentListView:ListView
     lateinit var nameContentTextView:TextView
 
-    val realm1= Realm.getDefaultInstance() //Realm 인스턴스 얻기
+    val realm1 = try {
+        val config = RealmConfiguration.Builder()
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.getInstance(config)
+    } catch (ex: RealmMigrationNeededException) {
+        Realm.getDefaultInstance()
+    } //Realm 인스턴스 얻기
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

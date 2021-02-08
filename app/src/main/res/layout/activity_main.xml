@@ -158,7 +158,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/btn_commu"
         android:layout_width="97dp"
         android:layout_height="96dp"
         android:layout_marginStart="24dp"
