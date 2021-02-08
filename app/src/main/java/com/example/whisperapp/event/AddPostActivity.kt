@@ -42,7 +42,7 @@ class AddPostActivity: AppCompatActivity() {
         intent.putExtra("content", "대상: "+objectPost.text+"\n주최/주관: "+hostPost.text+"\n모집 기간: "+timePost.text)
         intent.putExtra("sort", "스터디/동아리")
         intent.putExtra("detail", detailPost.text.toString())
-        intent.putExtra("mainImageView", "bob")
+        intent.putExtra("mainImageView", "defaultimg")
         intent.putExtra("link", linkPost.text.toString())
         startActivity(intent)
         return true

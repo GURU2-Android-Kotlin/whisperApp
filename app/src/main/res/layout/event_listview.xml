@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6AADE6FF"
+    android:background="@color/main_color"
     tools:context=".event.EventListActivity">
 
     <ListView
         android:id="@+id/listview"
-        android:layout_width="415dp"
-        android:layout_height="474dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="448dp"
         android:background="#FFFFFF"
-        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studyBtn"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/contestBtn"
         android:layout_width="122dp"
         android:layout_height="49dp"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="38dp"
         android:text="대회/공모전"
-        app:backgroundTint="#3F51B5"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/sub_color"
         app:layout_constraintEnd_toStartOf="@+id/eduBtn"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/allBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="봉사활동"
-        app:backgroundTint="#3F51B5"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/sub_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allBtn" />
 
@@ -48,7 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="스터디/동아리"
-        app:backgroundTint="#3F51B5"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/sub_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contestBtn" />
@@ -57,10 +59,11 @@
         android:id="@+id/eduBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
         android:text="교육"
-        app:backgroundTint="#3F51B5"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/sub_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,9 +72,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:text="전체보기"
-        app:backgroundTint="#3F51B5"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/sub_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,8 +86,23 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:text="기타"
-        app:backgroundTint="#3F51B5"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/sub_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eduBtn" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="8dp"
+        android:text="카테고리"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/contestBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

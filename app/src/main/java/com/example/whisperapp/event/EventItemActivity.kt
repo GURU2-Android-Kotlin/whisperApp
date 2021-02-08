@@ -12,8 +12,8 @@ class EventItemActivity : AppCompatActivity() {
     lateinit var title:TextView
     lateinit var content:TextView
     lateinit var detail:TextView
-    lateinit var webBtn:Button
-    lateinit var shareBtn:Button
+    lateinit var webBtn:ImageButton
+    lateinit var shareBtn:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
