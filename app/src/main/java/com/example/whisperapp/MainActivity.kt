@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn_port : ImageButton
     lateinit var btn_awards : ImageButton
     lateinit var btn_commu : ImageButton
+    lateinit var btn_event: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         btn_port = findViewById(R.id.btn_port)
         btn_awards = findViewById(R.id.btn_awards)
         btn_commu = findViewById(R.id.btn_commu)
+        btn_event=findViewById(R.id.btn_event)
 
         todoButton.setOnClickListener { view ->
             startActivity<TodoActivity>()
@@ -42,6 +44,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_commu.setOnClickListener { view ->
             startActivity<MainCommuActivity>()
+        }
+        btn_event.setOnClickListener { view ->
+            startActivity<EventListActivity>()
         }
     }
 

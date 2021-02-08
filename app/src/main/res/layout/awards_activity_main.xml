@@ -19,11 +19,12 @@
             android:id="@+id/tvTitle_awards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="제목"
-            android:padding="5dp"
-            android:textColor="@color/black"
             android:background="@drawable/edge2"
-            android:textSize="30sp" />
+            android:padding="5dp"
+            android:text="제목"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvDate_awards"
@@ -53,11 +54,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="활동 내용"
             android:background="@drawable/edge2"
             android:padding="5dp"
+            android:text="활동 내용"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvContent_awards"
@@ -78,11 +80,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="메모"
             android:background="@drawable/edge2"
             android:padding="5dp"
+            android:text="메모"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvMemo_awards"
