@@ -6,7 +6,7 @@ class ContentClass(var title:String, var content:String, var sort:String, var de
 
     init{
         if(mainImageView.isEmpty()){
-            mainImageView="swlug"
+            mainImageView="defaultimg"
         }
         if(link.isEmpty()){
             link="empty"

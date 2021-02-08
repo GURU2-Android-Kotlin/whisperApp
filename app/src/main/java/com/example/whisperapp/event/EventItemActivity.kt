@@ -31,7 +31,7 @@ class EventItemActivity : AppCompatActivity() {
             title.text=intent.getStringExtra("title")
             content.text=intent.getStringExtra("content")
             detail.text=intent.getStringExtra("detail")
-            mainImageView.setImageResource(intent.getIntExtra("mainImageView", R.drawable.bob)) //기본 사진 수정할 것
+            mainImageView.setImageResource(intent.getIntExtra("mainImageView", R.drawable.defaultimg))
 
         }
 
