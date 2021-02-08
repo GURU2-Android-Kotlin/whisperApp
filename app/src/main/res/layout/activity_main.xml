@@ -136,7 +136,19 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/btn_port"
+        android:layout_width="97dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_awards"
+        app:layout_constraintStart_toEndOf="@+id/todoButton"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/btn_awards"
         android:layout_width="97dp"
         android:layout_height="96dp"
         android:layout_marginTop="50dp"
@@ -168,7 +180,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:layout_constraintTop_toBottomOf="@+id/btn_port"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
@@ -180,20 +192,10 @@
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/btn_awards"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="97dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
-        app:layout_constraintStart_toEndOf="@+id/todoButton"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        tools:srcCompat="@tools:sample/avatars" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

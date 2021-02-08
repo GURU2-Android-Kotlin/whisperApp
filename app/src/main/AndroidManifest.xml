@@ -26,6 +26,7 @@
         <activity android:name=".community.RegCommuActivity" />
         <activity android:name=".MainActivity"/>
         <activity android:name=".login.JoinActivity"/>
+        <activity android:name=".AwardsActivity" />
         <activity
             android:name=".todo.TodoActivity"
             android:label="@string/title_activity_todo"

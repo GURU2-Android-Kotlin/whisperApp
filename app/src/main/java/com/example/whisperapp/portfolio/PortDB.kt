@@ -6,7 +6,7 @@ import io.realm.annotations.PrimaryKey
 open class portDB (
     @PrimaryKey
     var id : Long = 0,
-    var img : String = "",
+    var classification : String = "",
     var title: String = "",
     var date: String = "",
     var content: String = "",
