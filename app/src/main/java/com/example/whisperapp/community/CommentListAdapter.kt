@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.whisperapp.community.Commu_commentDB
 import io.realm.RealmBaseAdapter
 import io.realm.RealmResults
 
@@ -16,7 +17,7 @@ class CommentListAdapter(realmResult: RealmResults<Commu_commentDB>)
         val view: View
 
         if(convertView==null){
-            view=LayoutInflater.from(parent?.context).inflate(R.layout.item_content_commu,parent, false)
+            view=LayoutInflater.from(parent?.context).inflate(R.layout.community_item_content,parent, false)
             vh=ViewHolder_comment(view)
             view.tag=vh
         }else{

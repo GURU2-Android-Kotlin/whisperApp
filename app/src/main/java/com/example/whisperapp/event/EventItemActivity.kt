@@ -1,10 +1,10 @@
-package com.example.whisperapp
+package com.example.whisperapp.event
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whisperapp.R
 
 class EventItemActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class EventItemActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_content)
+        setContentView(R.layout.event_content)
 
         mainImageView=findViewById(R.id.imageViewSub)
         title=findViewById(R.id.titleSub)
@@ -31,7 +31,7 @@ class EventItemActivity : AppCompatActivity() {
             title.text=intent.getStringExtra("title")
             content.text=intent.getStringExtra("content")
             detail.text=intent.getStringExtra("detail")
-            mainImageView.setImageResource(intent.getIntExtra("mainImageView",R.drawable.bob)) //기본 사진 수정할 것
+            mainImageView.setImageResource(intent.getIntExtra("mainImageView", R.drawable.bob)) //기본 사진 수정할 것
 
         }
 

@@ -1,4 +1,4 @@
-package com.example.whisperapp
+package com.example.whisperapp.event
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whisperapp.R
 
 class AddPostActivity: AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class AddPostActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_addpost)
+        setContentView(R.layout.event_addpost)
 
         titlePost=findViewById(R.id.titlePost)
         objectPost=findViewById(R.id.objectPost)

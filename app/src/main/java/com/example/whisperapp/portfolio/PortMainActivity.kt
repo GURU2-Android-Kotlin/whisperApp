@@ -1,8 +1,10 @@
-package com.example.whisperapp
+package com.example.whisperapp.portfolio
 
 import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whisperapp.PortAdapter
+import com.example.whisperapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.realm.Realm
 import io.realm.RealmConfiguration
@@ -26,7 +28,7 @@ class PortMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_port)
+        setContentView(R.layout.port_activity_main)
         //setSupportActionBar(findViewById(R.id.toolbar_port))
 
 

@@ -1,16 +1,15 @@
-package com.example.whisperapp
+package com.example.whisperapp.community
 
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.ListView
+import com.example.whisperapp.CommuListAdapter
+import com.example.whisperapp.R
 import io.realm.Realm
 import io.realm.Sort
 import io.realm.kotlin.where
 import org.jetbrains.anko.startActivity
-import org.w3c.dom.Comment
 
 class MainCommuActivity : AppCompatActivity() {
 
@@ -20,7 +19,7 @@ class MainCommuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_commu)
+        setContentView(R.layout.community_activity_main)
 
         listView_commu=findViewById(R.id.listView_commu)
 
@@ -30,7 +29,7 @@ class MainCommuActivity : AppCompatActivity() {
         }
 
         val realmResult = realm.where<CommuDB>().findAll().sort("id", Sort.ASCENDING)
-        val adapter=CommuListAdapter(realmResult)
+        val adapter= CommuListAdapter(realmResult)
         listView_commu.adapter=adapter
 
         realmResult.addChangeListener { _ -> adapter.notifyDataSetChanged() }  // 데이터가 변경될 경우 어댑터에 적용됨

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.whisperapp.todo.Todo
 import io.realm.OrderedRealmCollection
 import io.realm.RealmBaseAdapter
 
@@ -15,7 +16,7 @@ class TodoListAdapter(realmResult: OrderedRealmCollection<Todo>)
         val view: View
 
         if(convertView==null){
-            view= LayoutInflater.from(parent?.context).inflate(R.layout.item_todo,parent, false)
+            view= LayoutInflater.from(parent?.context).inflate(R.layout.todo_item,parent, false)
             vh=ViewHolder(view)
             view.tag=vh
         }else{

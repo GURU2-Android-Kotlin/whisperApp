@@ -2,8 +2,11 @@ package com.example.whisperapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
+import com.example.whisperapp.community.MainCommuActivity
+import com.example.whisperapp.event.EventListActivity
+import com.example.whisperapp.portfolio.PortMainActivity
+import com.example.whisperapp.todo.TodoActivity
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {

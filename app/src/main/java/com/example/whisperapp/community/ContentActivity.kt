@@ -1,10 +1,12 @@
-package com.example.whisperapp
+package com.example.whisperapp.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
+import com.example.whisperapp.CommentListAdapter
+import com.example.whisperapp.R
 import io.realm.Realm
 import io.realm.Sort
 import io.realm.kotlin.where
@@ -22,7 +24,7 @@ class ContentActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_content_community)
+        setContentView(R.layout.community_activity_content)
 
         titlesee_commu=findViewById(R.id.titlesee_commu)
         contentsee_commu=findViewById(R.id.contentsee_commu)
@@ -37,7 +39,7 @@ class ContentActivity : AppCompatActivity() {
         val realmResult = realm1.where<Commu_commentDB>().findAll().sort("id", Sort.ASCENDING)
 
 
-        val adapter=CommentListAdapter(realmResult)
+        val adapter= CommentListAdapter(realmResult)
         commentListView.adapter=adapter
 
         realmResult.addChangeListener { _ -> adapter.notifyDataSetChanged() }  // 데이터가 변경될 경우 어댑터에 적용됨

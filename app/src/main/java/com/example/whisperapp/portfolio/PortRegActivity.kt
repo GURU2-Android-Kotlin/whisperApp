@@ -1,4 +1,4 @@
-package com.example.whisperapp
+package com.example.whisperapp.portfolio
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whisperapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.realm.Realm
 import io.realm.RealmConfiguration
@@ -41,7 +42,7 @@ class PortRegActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reg_port)
+        setContentView(R.layout.port_reg)
 
         imageView_port = findViewById<ImageView>(R.id.imageView_port)
         edtTitle_port = findViewById(R.id.edtTitle_port)

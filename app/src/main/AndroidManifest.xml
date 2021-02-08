@@ -13,26 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhisperApp">
-        <activity android:name=".EditTodoActivity"></activity>
-        <activity android:name=".PortRegActivity"/>
-        <activity android:name=".PortMainActivity"/>
-        <activity android:name=".EventItemActivity"/>
-        <activity android:name=".AddPostActivity"/>
-        <activity android:name=".WebViewActivity"/>
-        <activity android:name=".EventListActivity"/>
-        <activity android:name=".MainCommuActivity" />
-        <activity android:name=".AddCommentActivity"/>
-        <activity android:name=".ContentActivity" />
-        <activity android:name=".RegCommuActivity" />
+        <activity android:name=".todo.EditTodoActivity"></activity>
+        <activity android:name=".portfolio.PortRegActivity"/>
+        <activity android:name=".portfolio.PortMainActivity"/>
+        <activity android:name=".event.EventItemActivity"/>
+        <activity android:name=".event.AddPostActivity"/>
+        <activity android:name=".event.WebViewActivity"/>
+        <activity android:name=".event.EventListActivity"/>
+        <activity android:name=".community.MainCommuActivity" />
+        <activity android:name=".community.AddCommentActivity"/>
+        <activity android:name=".community.ContentActivity" />
+        <activity android:name=".community.RegCommuActivity" />
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".login.JoinActivity"/>
         <activity
-            android:name=".TodoActivity"
+            android:name=".todo.TodoActivity"
             android:label="@string/title_activity_todo"
             android:theme="@style/Theme.WhisperApp.NoActionBar" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

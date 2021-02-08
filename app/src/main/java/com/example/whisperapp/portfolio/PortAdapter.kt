@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.whisperapp.portfolio.portDB
 import io.realm.OrderedRealmCollection
 import io.realm.RealmBaseAdapter
 
@@ -15,7 +16,7 @@ class PortAdapter (realmResult: OrderedRealmCollection<portDB>)
         val view : View
 
         if (convertView==null){
-            view = LayoutInflater.from(parent?.context).inflate(R.layout.list_portfolio,parent, false)
+            view = LayoutInflater.from(parent?.context).inflate(R.layout.port_list,parent, false)
             vh = ViewHolderPort(view)
             view.tag=vh
         }else{

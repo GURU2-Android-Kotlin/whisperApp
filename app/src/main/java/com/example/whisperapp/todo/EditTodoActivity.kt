@@ -1,4 +1,4 @@
-package com.example.whisperapp
+package com.example.whisperapp.todo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.CalendarView
 import android.widget.EditText
 import android.widget.TextView
+import com.example.whisperapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.realm.Realm
 import io.realm.kotlin.createObject
@@ -28,7 +29,7 @@ class EditTodoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_todo)
+        setContentView(R.layout.todo_activity_edit)
 
         calendarView = findViewById(R.id.calendarView)
         todoEditText = findViewById(R.id.todoEditText)

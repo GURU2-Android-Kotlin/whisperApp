@@ -1,16 +1,14 @@
-package com.example.whisperapp
+package com.example.whisperapp.community
 
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whisperapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.realm.Realm
-import io.realm.RealmConfiguration
-import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
-import org.jetbrains.anko.find
 
 class RegCommuActivity : AppCompatActivity() {
 
@@ -23,7 +21,7 @@ class RegCommuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reg_commu)
+        setContentView(R.layout.community_activity_reg)
 
         edtTitle_commu = findViewById(R.id.edtTitle_commu)
         edtName_commu = findViewById(R.id.edtName_commu)

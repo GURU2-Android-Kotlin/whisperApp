@@ -1,12 +1,11 @@
-package com.example.whisperapp
+package com.example.whisperapp.todo
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.ListView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import com.example.whisperapp.R
+import com.example.whisperapp.TodoListAdapter
 import io.realm.Realm
 import io.realm.Sort
 import io.realm.kotlin.where
@@ -20,7 +19,7 @@ class TodoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_todo)
+        setContentView(R.layout.todo_activity)
         setSupportActionBar(findViewById(R.id.toolbar))
 
         listView=findViewById(R.id.listView)

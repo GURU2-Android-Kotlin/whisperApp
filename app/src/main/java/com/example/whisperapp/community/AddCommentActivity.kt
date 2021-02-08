@@ -1,9 +1,10 @@
-package com.example.whisperapp
+package com.example.whisperapp.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.example.whisperapp.R
 import io.realm.Realm
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
@@ -22,7 +23,7 @@ class AddCommentActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.comment_add)
+        setContentView(R.layout.community_comment_add)
 
         add_editText=findViewById(R.id.add_editText)
         button=findViewById(R.id.button)

@@ -1,4 +1,4 @@
-package com.example.whisperapp
+package com.example.whisperapp.portfolio
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey

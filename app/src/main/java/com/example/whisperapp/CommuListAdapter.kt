@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.whisperapp.community.CommuDB
 import io.realm.RealmBaseAdapter
 import io.realm.RealmResults
 
@@ -15,7 +16,7 @@ class CommuListAdapter(realmResult: RealmResults<CommuDB>)
         val view : View
 
         if (convertView==null){
-            view = LayoutInflater.from(parent?.context).inflate(R.layout.list_commu,parent, false)
+            view = LayoutInflater.from(parent?.context).inflate(R.layout.community_list,parent, false)
             vh = ViewHoler_commu(view)
             view.tag=vh
         }else{

@@ -1,4 +1,4 @@
-package com.example.whisperapp
+package com.example.whisperapp.event
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.whisperapp.R
 
 class ListViewAdapter(val context: Context, val contentClassList:ArrayList<ContentClass>) : BaseAdapter() {
     override fun getCount(): Int {
@@ -22,7 +23,7 @@ class ListViewAdapter(val context: Context, val contentClassList:ArrayList<Conte
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view:View=LayoutInflater.from(context).inflate(R.layout.activity_listitem, null)
+        val view:View=LayoutInflater.from(context).inflate(R.layout.event_listitem, null)
 
         val mainImageView=view.findViewById<ImageView>(R.id.mainImageView)
         val titleTextView=view.findViewById<TextView>(R.id.titleTextView)

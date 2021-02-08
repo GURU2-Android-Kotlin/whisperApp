@@ -1,10 +1,11 @@
-package com.example.whisperapp
+package com.example.whisperapp.event
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
 import android.widget.*
+import com.example.whisperapp.R
 
 class EventListActivity : AppCompatActivity() {
 
@@ -62,7 +63,7 @@ class EventListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_listview)
+        setContentView(R.layout.event_listview)
 
         listView = findViewById(R.id.listview)
         contestBtn=findViewById(R.id.contestBtn)
@@ -88,7 +89,7 @@ class EventListActivity : AppCompatActivity() {
 
 
         var tmp=contentList
-        listView.adapter=ListViewAdapter(this, tmp)
+        listView.adapter= ListViewAdapter(this, tmp)
         ListViewAdapter(this, tmp).notifyDataSetChanged()
 
         //Item click listener
@@ -99,8 +100,8 @@ class EventListActivity : AppCompatActivity() {
             Toast.makeText(this, "자세한 내용 확인", Toast.LENGTH_SHORT).show()
             val intent= Intent(this, EventItemActivity::class.java)
             intent.putExtra("title", ListViewAdapter(this, tmp).getTitleView(position))
-            intent.putExtra("content",ListViewAdapter(this, tmp).getContentView(position))
-            intent.putExtra("detail",ListViewAdapter(this, tmp).getDetailView(position))
+            intent.putExtra("content", ListViewAdapter(this, tmp).getContentView(position))
+            intent.putExtra("detail", ListViewAdapter(this, tmp).getDetailView(position))
             intent.putExtra("mainImageView", ListViewAdapter(this, tmp).getImageView(position))
             intent.putExtra("link", ListViewAdapter(this, tmp).getLink(position))
             startActivity(intent)
@@ -121,28 +122,28 @@ class EventListActivity : AppCompatActivity() {
             }
         }
         volunteerBtn.setOnClickListener {
-            listView.adapter=ListViewAdapter(this, tmp)
+            listView.adapter= ListViewAdapter(this, tmp)
 
             for(i in 0..contentList.size-1){
                 tmp[i].bool = tmp[i].sort.equals("봉사활동")
             }
         }
         studyBtn.setOnClickListener {
-            listView.adapter=ListViewAdapter(this, tmp)
+            listView.adapter= ListViewAdapter(this, tmp)
 
             for(i in 0..contentList.size-1){
                 tmp[i].bool = tmp[i].sort.equals("스터디/동아리")
             }
         }
         eduBtn.setOnClickListener {
-            listView.adapter=ListViewAdapter(this, tmp)
+            listView.adapter= ListViewAdapter(this, tmp)
 
             for(i in 0..contentList.size-1){
                 tmp[i].bool = tmp[i].sort.equals("교육")
             }
         }
         otherBtn.setOnClickListener {
-            listView.adapter=ListViewAdapter(this, tmp)
+            listView.adapter= ListViewAdapter(this, tmp)
 
             for(i in 0..contentList.size-1){
                 tmp[i].bool = tmp[i].sort.equals("기타")

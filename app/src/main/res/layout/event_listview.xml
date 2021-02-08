@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6AADE6FF"
-    tools:context=".EventListActivity">
+    tools:context=".event.EventListActivity">
 
     <ListView
         android:id="@+id/listview"

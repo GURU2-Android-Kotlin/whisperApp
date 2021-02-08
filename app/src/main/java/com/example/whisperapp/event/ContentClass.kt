@@ -1,4 +1,4 @@
-package com.example.whisperapp
+package com.example.whisperapp.event
 
 
 class ContentClass(var title:String, var content:String, var sort:String, var detail:String, var mainImageView:String, var link:String){
