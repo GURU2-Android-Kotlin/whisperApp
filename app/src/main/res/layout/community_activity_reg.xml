@@ -4,39 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_gray"
     android:orientation="vertical"
     android:padding="15dp"
     tools:context=".community.RegCommuActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout1_commu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edge2"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="29dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:text="제목"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edtTitle_commu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
+            android:layout_width="315dp"
+            android:layout_height="43dp"
+            android:background="@null"
             android:hint="제목 입력" />
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout2_commu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_height="45dp"
+        android:background="@drawable/edge2"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:textSize="25sp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1_commu"
@@ -45,46 +51,50 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
             android:text="이름"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edtName_commu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
+            android:layout_width="315dp"
+            android:layout_height="43dp"
+            android:background="@null"
             android:hint="이름 입력" />
 
     </LinearLayout>
 
+
+
     <LinearLayout
         android:id="@+id/linearLayout3_port"
-        android:layout_width="386dp"
-        android:layout_height="299dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edge2"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/doneFab_commu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2_commu">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2_commu"
+        tools:layout_editor_absoluteX="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
             android:text="내용"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edtContent_commu"
-            android:layout_width="303dp"
-            android:layout_height="298dp"
-            android:layout_weight="9"
-            android:hint="  활동 내역 입력"
+            android:layout_width="330dp"
+            android:layout_height="330dp"
+            android:background="@null"
+            android:hint="활동 내역 입력                                  "
             android:inputType="textMultiLine"
-            android:lines="6" />
+            android:lines="8" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -93,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#00bfff"
+        app:backgroundTint="@color/main_color"
         android:clickable="true"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"

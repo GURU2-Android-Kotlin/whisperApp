@@ -4,114 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_gray"
     android:orientation="vertical"
-    android:layout_margin="15dp"
     tools:context=".portfolio.PortRegActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout1_port"
+        android:id="@+id/linearLayout_port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="15dp">
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="제목"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:id="@+id/linearLayout1_port"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/edge2"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edtTitle_port"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:hint="제목 입력" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="제목"
+                android:textSize="20sp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2_port"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1_port"
-        tools:layout_editor_absoluteX="5dp">
+            <EditText
+                android:id="@+id/edtTitle_port"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:hint="제목 입력" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="기간"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:id="@+id/linearLayout2_port"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/edge2"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edtDate_port"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:hint="YY/MM/DD - YY/MM/DD" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="기간"
+                android:textSize="20sp" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/edtDate_port"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:hint="YY/MM/DD - YY/MM/DD" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3_port"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2_port"
-        tools:layout_editor_absoluteX="5dp">
+        <LinearLayout
+            android:id="@+id/linearLayout3_port"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/edge2"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="분류"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="분류"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/edtClassification_port"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:hint="개인/팀" />
+            <EditText
+                android:id="@+id/edtClassification_port"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:background="@null"
+                android:hint="개인/팀" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout4_port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edge2"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3_port"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_port"
         tools:layout_editor_absoluteX="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
             android:text="내용"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edtContent_port"
-            android:layout_width="wrap_content"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_weight="9"
+            android:background="@null"
             android:hint="활동 내역 입력                                  "
-            android:background="@drawable/edge"
             android:inputType="textMultiLine"
-            android:lines="6" />
+            android:lines="8" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edge2"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4_port"
         tools:layout_editor_absoluteX="15dp">
@@ -119,19 +126,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
             android:text="메모"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edtMemo_port"
-            android:layout_width="wrap_content"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_weight="9"
+            android:background="@null"
             android:hint="ex) 향후 공부 방향 제시/개선할 점"
-            android:background="@drawable/edge"
             android:inputType="textMultiLine"
-            android:lines="6" />
+            android:lines="11" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -140,9 +147,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#00bfff"
+        android:backgroundTint="@color/main_color"
         android:clickable="true"
         android:tint="@android:color/white"
+        app:backgroundTint="@color/main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_done_24"
@@ -157,6 +165,7 @@
         android:backgroundTint="#00bfff"
         android:clickable="true"
         android:tint="@android:color/white"
+        app:backgroundTint="@color/main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_baseline_delete_24"
