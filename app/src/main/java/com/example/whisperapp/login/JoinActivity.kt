@@ -6,6 +6,7 @@ import android.os.Handler
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.whisperapp.R
 import io.realm.Realm
@@ -35,6 +36,11 @@ class JoinActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_join)
+
+        //액션바 숨기기
+        var actionBar: ActionBar?
+        actionBar=supportActionBar
+        actionBar?.hide()
 
         handler = Handler()
 
