@@ -11,6 +11,8 @@ import io.realm.RealmConfiguration
 import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.yesButton
 
 class RegCommuActivity : AppCompatActivity() {
 
@@ -73,7 +75,9 @@ class RegCommuActivity : AppCompatActivity() {
         newItem.content = edtContent_commu.text.toString()
 
         realm.commitTransaction()
-        Toast.makeText(this, "저장되었습니다", Toast.LENGTH_SHORT).show()
+        alert("저장되었습니다."){
+            yesButton { finish() }
+        }.show()
     }
 
     private fun updateTodo_commu(id: Long) {
@@ -85,7 +89,9 @@ class RegCommuActivity : AppCompatActivity() {
         updateItem.content = edtContent_commu.text.toString()
 
         realm.commitTransaction()
-        Toast.makeText(this, "변경되었습니다", Toast.LENGTH_SHORT).show()
+        alert("변경되었습니다."){
+            yesButton { finish() }
+        }.show()
     }
 
     private fun nextId(): Int {

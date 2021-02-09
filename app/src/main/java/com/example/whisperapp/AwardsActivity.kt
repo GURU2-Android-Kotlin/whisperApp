@@ -8,6 +8,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.where
+import java.util.*
 
 class AwardsActivity : AppCompatActivity() {
 
@@ -37,9 +38,11 @@ class AwardsActivity : AppCompatActivity() {
         tvMemo_awards = findViewById(R.id.tvMemo_awards)
 
         val realmResult99 = realm99.where<portDB>().findAll()
-        val i : Int = 0
+        val dbSize = realm99.where<portDB>().max("id")!!
+        val random = Random()
+        val sizeInt = random.nextInt(dbSize.toInt())
 
-        val realmResult99_main = realmResult99[i]
+        val realmResult99_main = realmResult99[sizeInt]
         if (realmResult99_main != null) {
             tvTitle_awards.setText(realmResult99_main.title)
             tvDate_awards.setText(realmResult99_main.date)

@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:srcCompat="@drawable/smile" />
+        app:srcCompat="@drawable/people2" />
 
     <LinearLayout
         android:id="@+id/linearLayout_my"

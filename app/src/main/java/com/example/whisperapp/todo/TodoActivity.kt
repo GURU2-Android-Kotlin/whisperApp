@@ -36,7 +36,7 @@ class TodoActivity : AppCompatActivity() {
             startActivity<EditTodoActivity>()
         }
 
-        val realmResult = realm.where<Todo>().findAll().sort("date", Sort.DESCENDING)
+        val realmResult = realm.where<Todo>().findAll().sort("date", Sort.ASCENDING)
         // 할 일 목록을 날짜순으로 모두 가져옴
 
         val adapter = TodoListAdapter(realmResult)  // 할 일 목록이 담긴 어댑터 생성
