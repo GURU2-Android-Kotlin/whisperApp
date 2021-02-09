@@ -1,113 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
+
     <TextView
         android:id="@+id/titleSub"
-        android:layout_width="207dp"
-        android:layout_height="55dp"
+        android:layout_width="372dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Title"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSub"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <TextView
         android:id="@+id/contentSub"
-        android:layout_width="205dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="357dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:lineSpacingExtra="8dp"
         android:text="Content"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSub"
+        android:textColor="@color/text_gray_dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleSub" />
 
     <TextView
         android:id="@+id/detailSub"
-        android:layout_width="374dp"
-        android:layout_height="312dp"
+        android:layout_width="382dp"
+        android:layout_height="441dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:fadeScrollbars="false"
+        android:lineSpacingExtra="8dp"
         android:text="detail"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <ImageView
         android:id="@+id/imageViewSub"
-        android:layout_width="158dp"
-        android:layout_height="238dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="200dp"
+        android:layout_height="233dp"
+        android:layout_marginStart="135dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="135dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <ImageButton
         android:id="@+id/webBtn"
-        android:layout_width="51dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="33dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
-        app:layout_constraintEnd_toStartOf="@+id/shareBtn"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSub"
-        app:layout_constraintTop_toBottomOf="@+id/contentSub"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
         app:srcCompat="@drawable/homepage" />
-
-    <ImageButton
-        android:id="@+id/shareBtn"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="8dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textView20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contentSub"
-        app:srcCompat="@drawable/share" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
         android:text="홈페이지 접속"
-        app:layout_constraintBottom_toTopOf="@+id/detailSub"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSub" />
+        android:textColor="@color/text_gray_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/webBtn" />
+
+    <ImageButton
+        android:id="@+id/shareBtn"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/share" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="95dp"
         android:text="공유하기"
-        app:layout_constraintBottom_toTopOf="@+id/detailSub"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/text_gray_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shareBtn" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/main_color"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSub"
+        tools:layout_editor_absoluteX="0dp" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@color/main_color"
-        app:layout_constraintBottom_toTopOf="@+id/detailSub"
+        app:layout_constraintTop_toBottomOf="@+id/contentSub"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/main_color"
         app:layout_constraintTop_toBottomOf="@+id/textView19"
-        tools:layout_editor_absoluteX="-35dp" />
+        tools:layout_editor_absoluteX="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

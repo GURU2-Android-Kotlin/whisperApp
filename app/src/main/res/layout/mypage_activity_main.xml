@@ -7,16 +7,23 @@
     android:background="@color/back_gray"
     tools:context=".mypage.mypageMainActivity">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
+
     <TextView
         android:id="@+id/textView17"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="88dp"
         android:text="마이 페이지"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +41,7 @@
         android:id="@+id/linearLayout_my"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edge2"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,11 +60,11 @@
             android:id="@+id/id_my"
             android:layout_width="330dp"
             android:layout_height="50dp"
-            android:textSize="20dp"
-            android:padding="10dp"
             android:background="@null"
             android:gravity="center_vertical"
-            android:text="swu2021" />
+            android:padding="10dp"
+            android:text="swu2021"
+            android:textSize="20dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -96,7 +103,7 @@
         android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:text="회원 탈퇴"
         android:textColor="@color/white"
@@ -111,7 +118,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:text="종료하기"
         android:textColor="@color/white"
@@ -125,9 +132,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:textSize="11dp"
-        android:textColor="@color/white"
         android:text="Copyright 2021. (Whisper) All pictures cannot be copied without permission"
+        android:textColor="@color/black"
+        android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

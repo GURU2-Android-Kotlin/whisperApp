@@ -11,4 +11,6 @@
     <color name="main_color"> #3f5cff </color>
     <color name="sub_color">#E4F1FF</color>
     <color name="back_gray">#e9ecef</color>
+    <color name="text_gray">#5E5E5E</color>
+    <color name="text_gray_dark">#303030</color>
 </resources>

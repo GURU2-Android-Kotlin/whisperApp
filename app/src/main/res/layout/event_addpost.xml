@@ -5,25 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#7EF0FF"
-        android:gravity="center"
-        android:text="스터디/동아리 모집하기"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="55dp" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="388dp"

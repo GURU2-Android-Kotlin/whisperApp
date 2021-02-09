@@ -6,19 +6,27 @@
     android:layout_height="match_parent"
     android:background="@color/back_gray"
     android:orientation="vertical"
-    android:padding="15dp"
     tools:context=".community.RegCommuActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout1_commu"
         android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edge2"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="15dp">
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,8 +49,10 @@
         android:id="@+id/linearLayout2_commu"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@drawable/edge2"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/edge2"
         android:orientation="horizontal"
         android:textSize="25sp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1_commu"
@@ -51,9 +61,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:text="이름"
             android:textSize="20sp" />
 
@@ -67,11 +77,12 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:id="@+id/linearLayout3_port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/edge2"
         android:orientation="horizontal"
@@ -81,9 +92,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:text="내용"
             android:textSize="20sp" />
 
@@ -103,9 +114,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:backgroundTint="@color/main_color"
         android:clickable="true"
         android:tint="@android:color/white"
+        app:backgroundTint="@color/main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_done_24" />

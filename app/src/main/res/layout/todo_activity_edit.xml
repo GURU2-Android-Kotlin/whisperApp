@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".todo.EditTodoActivity">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="395dp"
         android:layout_height="331dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="60dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

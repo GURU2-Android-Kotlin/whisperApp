@@ -63,9 +63,7 @@ class MainActivity : AppCompatActivity() {
         btn_event=findViewById(R.id.btn_event)
         btn_my=findViewById(R.id.btn_my)
         todoDateTextView = findViewById(R.id.todoDateTextView)
-        todoDateTextView1 = findViewById(R.id.todoDateTextView1)
         todoTitleTextView = findViewById(R.id.todoTitleTextView)
-        todoTitleTextView1 = findViewById(R.id.todoTitleTextView1)
         textView2=findViewById(R.id.textView2)
 
         realm.beginTransaction()
@@ -92,15 +90,10 @@ class MainActivity : AppCompatActivity() {
 
         val realmResult_main = realm.where<Todo>().findAll()
         val realmResultmain1 = realmResult_main[0]
-        val realmResultmain2 = realmResult_main[1]
 
         if (realmResultmain1 != null) {
             todoDateTextView.text = android.text.format.DateFormat.format("yyyy/MM/dd", realmResultmain1.date)
             todoTitleTextView.text = realmResultmain1.title
-        }
-        if (realmResultmain2 != null) {
-            todoDateTextView1.text = android.text.format.DateFormat.format("yyyy/MM/dd", realmResultmain2.date)
-            todoTitleTextView1.text = realmResultmain2.title
         }
 
         todoButton.setOnClickListener { view ->
