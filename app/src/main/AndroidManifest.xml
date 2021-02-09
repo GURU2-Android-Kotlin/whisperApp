@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhisperApp">
-        <activity android:name=".mypageMainActivity"></activity>
+        <activity android:name=".mypage.mypageMainActivity"></activity>
         <activity android:name=".todo.EditTodoActivity" />
         <activity android:name=".portfolio.PortRegActivity" />
         <activity android:name=".portfolio.PortMainActivity" />

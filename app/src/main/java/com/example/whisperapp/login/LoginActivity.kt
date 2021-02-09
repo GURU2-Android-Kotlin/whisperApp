@@ -18,6 +18,7 @@ import org.jetbrains.anko.startActivity
 class LoginActivity: AppCompatActivity(){
     lateinit var id: EditText
     lateinit var pwd: EditText
+    lateinit var email: EditText
     lateinit var loginBtn: Button
     lateinit var joinBtn: Button
 
@@ -68,6 +69,10 @@ class LoginActivity: AppCompatActivity(){
                 .equalTo("id", id)
                 .equalTo("pwd", pwd)
                 .findFirst()
+
+        if (person != null) {
+            val email=person.email
+        }
 
         if(person!=null){
             Toast.makeText(this,"로그인 성공", Toast.LENGTH_SHORT).show()

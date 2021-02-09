@@ -6,8 +6,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.whisperapp.community.MainCommuActivity
 import com.example.whisperapp.event.EventListActivity
+import com.example.whisperapp.mypage.mypageMainActivity
 import com.example.whisperapp.portfolio.PortMainActivity
-import com.example.whisperapp.portfolio.PortRegActivity
 import com.example.whisperapp.portfolio.portDB
 import com.example.whisperapp.todo.Todo
 import com.example.whisperapp.todo.TodoActivity
@@ -16,7 +16,6 @@ import io.realm.RealmConfiguration
 import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
-import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
