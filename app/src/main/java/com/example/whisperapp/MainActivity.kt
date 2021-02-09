@@ -21,6 +21,7 @@ import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
+    // 변수 선언
     lateinit var todoButton: ImageButton
     lateinit var btn_port : ImageButton
     lateinit var btn_awards : ImageButton
@@ -30,9 +31,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var todoDateTextView : TextView
     lateinit var todoTitleTextView : TextView
     lateinit var btn_refresh : ImageButton
-
     lateinit var textView2:TextView
 
+    // 현재 액티비티에서 Realm 인스턴스 얻음
+    // Migration 오류 발생에 대비하여 try-catch로 얻어옴
+    // 증복 오류 방지를 위해 인스턴스를 하나 더 생성
     val realm = try {
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
@@ -55,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // activity_main.xml의 변수 id 연결
         todoButton = findViewById(R.id.todoButton)
         btn_port = findViewById(R.id.btn_port)
         btn_awards = findViewById(R.id.btn_awards)
@@ -66,13 +70,15 @@ class MainActivity : AppCompatActivity() {
         textView2=findViewById(R.id.textView2)
         btn_refresh = findViewById(R.id.btn_refresh)
 
-        realm.beginTransaction()
+        realm.beginTransaction()    // 첫 번째 트랜젝션 시작
 
+        // 현재 로그인한 회원 정보의 id 값을 가져와 메인 화면에 보여줌
         val person=realm.where<Person>().findFirst()
         if (person != null) {
             textView2.text= person.id
         }
 
+        // portDB에 기본 데이터 저장
         val minId = realm.where<portDB>().min("id")
         if (minId == null) {
             val newItem = realm.createObject<portDB>(nextId_awards())
@@ -103,22 +109,26 @@ class MainActivity : AppCompatActivity() {
             newItem3.content = "안드로이드 앱 개발에 관심이 있는 친구들과 팀을 이루어 프로젝트를 진행하였다. 주제선정부터 개발, 디자인 단계까지 초반에 세부적으로 정하는 것이 중요하다. 팀원들간 역할 배분과 기능 담당을 나누어 개발을 하면 책임감을 더하면서도 부담은 덜 가질 수 있다. "
             newItem3.memo = "생각보다 구글링으로 해결되지 않는게 많았다. 교재를 사서 공부해도 도움이 될 것 같다."
         }
-        realm.commitTransaction()
-        realm2.beginTransaction()
+        realm.commitTransaction()   // 첫 번째 트랜젝션 종료
 
+        realm2.beginTransaction()   // 두 번째 트랜젝션 시작
+
+        // Todo에 기본 정보 저장
         val minId2 = realm2.where<Todo>().min("id")
         if (minId2 == null) {
             val newItem10 = realm2.createObject<Todo>(nextId_todo())
             newItem10.date = 1641794919192
             newItem10.title = "정보처리기사 자격증 취득"
         }
-        refreshTodo()
+        refreshTodo()   // 메인 페이지에 체크리스트 목록 중 날짜가 가장 빠른 데이터를 보여줌
 
+        // 새로고침 버튼을 누르면 메인 페이지에 체크리스트 목록 중 날짜가 가장 빠른 데이터를 보여주는 함수 실행
         btn_refresh.setOnClickListener {
             refreshTodo()
         }
-        realm2.commitTransaction()
+        realm2.commitTransaction()   // 두 번째 트랜젝션 종료
 
+        // 이미지 버튼 클릭 시 해당하는 액티비티로 연결
         todoButton.setOnClickListener { view ->
             startActivity<TodoActivity>()
         }
@@ -138,6 +148,8 @@ class MainActivity : AppCompatActivity() {
             startActivity<mypageMainActivity>()
         }
     }
+
+    // 키 증가 메서드
     private fun nextId_awards(): Int {
         val maxId = realm.where<portDB>().max("id")
 
@@ -146,6 +158,7 @@ class MainActivity : AppCompatActivity() {
         }
         return 0
     }
+
     private fun nextId_todo(): Int {
         val maxId = realm.where<Todo>().max("id")
 
@@ -154,6 +167,9 @@ class MainActivity : AppCompatActivity() {
         }
         return 0
     }
+
+    // 메인 페이지에 체크리스트 목록 중
+    // 날짜가 가장 빠른 데이터를 보여주는 함수
     private fun refreshTodo() {
         val realmResult_main = realm2.where<Todo>().findAllAsync()
         val realmResultmain1 = realmResult_main[0]

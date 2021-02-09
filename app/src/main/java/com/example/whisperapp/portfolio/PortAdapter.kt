@@ -8,6 +8,9 @@ import com.example.whisperapp.portfolio.portDB
 import io.realm.OrderedRealmCollection
 import io.realm.RealmBaseAdapter
 
+// port_content_main.xml의 리스트뷰를 이용하기 위한 Adapter
+// 리스트뷰에는 port_list.xml의 형식으로 내용을 추가함
+
 class PortAdapter (realmResult: OrderedRealmCollection<portDB>)
     : RealmBaseAdapter<portDB>(realmResult) {
 
@@ -39,6 +42,7 @@ class PortAdapter (realmResult: OrderedRealmCollection<portDB>)
     }
 }
 
+// 뷰의 내용을 업데이트하기 위한 ViewHolder
 class ViewHolderPort(view: View) {
     val titleTextView_port : TextView = view.findViewById(R.id.tvTitle_port)
     val dateTextView_port : TextView = view.findViewById(R.id.tvDate_port)
