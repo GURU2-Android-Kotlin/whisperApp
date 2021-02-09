@@ -29,7 +29,6 @@ class TodoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.todo_activity)
-        setSupportActionBar(findViewById(R.id.toolbar))
 
         listView=findViewById(R.id.listView)
         fab=findViewById(R.id.fab)

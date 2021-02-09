@@ -106,7 +106,7 @@
                 android:paddingStart="30dp"
                 android:padding="3dp"
                 android:background="#E4F1FF"
-                android:text="2021/08/20"
+                android:text="When?"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -117,11 +117,21 @@
                 android:layout_marginTop="3dp"
                 android:paddingStart="30dp"
                 android:padding="3dp"
-                android:text="인턴 지원 완료"
+                android:text="회원님의 체크리스트를 완성해주세요"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="19sp" />
 
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_refresh"
+            android:layout_width="42dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/refresh2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

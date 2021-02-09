@@ -1,12 +1,15 @@
 package com.example.whisperapp.mypage
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.SystemClock.sleep
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.whisperapp.R
 import com.example.whisperapp.login.LoginActivity
 import com.example.whisperapp.login.Person
@@ -14,6 +17,8 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.realm.exceptions.RealmMigrationNeededException
 import io.realm.kotlin.where
+import kotlinx.coroutines.delay as delay1
+
 
 class mypageMainActivity : AppCompatActivity() {
     lateinit var id_my: TextView
@@ -53,25 +58,48 @@ class mypageMainActivity : AppCompatActivity() {
         }
 
         my_appout.setOnClickListener {
-            Toast.makeText(this, "회원 탈퇴가 완료되었습니다.", Toast.LENGTH_SHORT).show()
-            deleteTodo(id_my.text as String)
+            var dialog = AlertDialog.Builder(this)
+            dialog.setTitle(" 회원 탈퇴하시겠습니까? ")
+            dialog.setMessage("확인 버튼을 누르실 경우, 회원님의 소중한\n개인정보가 모두 삭제됩니다.")
+            dialog.setIcon(R.mipmap.ic_launcher)
+
+            fun toast_p() {
+                deleteTodo(id_my.text as String)
+            }
+            fun toast_n(){
+                super.onBackPressed()
+            }
+
+            var dialog_listener = object: DialogInterface.OnClickListener{
+                override fun onClick(dialog: DialogInterface?, which: Int) {
+                    when(which){
+                        DialogInterface.BUTTON_POSITIVE ->
+                            toast_p()
+                        DialogInterface.BUTTON_NEGATIVE ->
+                            toast_n()
+                    }
+                }
+            }
+
+            dialog.setPositiveButton("확인",dialog_listener)
+            dialog.setNegativeButton("취소",dialog_listener)
+            dialog.show()
         }
+
         app_finish.setOnClickListener {
             finishAffinity()
-            Toast.makeText(this, "Application이 종료되었습니다.", Toast.LENGTH_SHORT).show()
             System.runFinalization()
             System.exit(0)}
     }
 
+
     // 데이터 베이스 할 일 삭제
     private fun deleteTodo(id: String) {
-        loginRealm.beginTransaction()
 
+        loginRealm.beginTransaction()
         val deleteItem = loginRealm.where<Person>().equalTo("id", id).findFirst()!!
         deleteItem.deleteFromRealm()
-
         loginRealm.commitTransaction()
-
 
         finishAffinity()
         val intent = Intent(this, LoginActivity::class.java)

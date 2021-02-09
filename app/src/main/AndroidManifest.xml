@@ -26,12 +26,9 @@
         <activity android:name=".community.ContentActivity" />
         <activity android:name=".community.RegCommuActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".todo.TodoActivity"/>
         <activity android:name=".login.JoinActivity" />
         <activity android:name=".AwardsActivity" />
-        <activity
-            android:name=".todo.TodoActivity"
-            android:label="@string/title_activity_todo"
-            android:theme="@style/Theme.WhisperApp.NoActionBar" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

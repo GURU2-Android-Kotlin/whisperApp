@@ -6,6 +6,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.whisperapp.community.MainCommuActivity
 import com.example.whisperapp.event.EventListActivity
+import com.example.whisperapp.login.Person
 import com.example.whisperapp.mypage.mypageMainActivity
 import com.example.whisperapp.portfolio.PortMainActivity
 import com.example.whisperapp.portfolio.portDB
@@ -31,7 +32,18 @@ class MainActivity : AppCompatActivity() {
     lateinit var todoTitleTextView : TextView
     lateinit var todoTitleTextView1 : TextView
 
+    lateinit var textView2:TextView
+
     val realm = try {
+        val config = RealmConfiguration.Builder()
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.getInstance(config)
+    } catch (ex: RealmMigrationNeededException) {
+        Realm.getDefaultInstance()
+    }
+
+    val loginRealm = try {
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
@@ -54,8 +66,14 @@ class MainActivity : AppCompatActivity() {
         todoDateTextView1 = findViewById(R.id.todoDateTextView1)
         todoTitleTextView = findViewById(R.id.todoTitleTextView)
         todoTitleTextView1 = findViewById(R.id.todoTitleTextView1)
+        textView2=findViewById(R.id.textView2)
 
         realm.beginTransaction()
+
+        val person=loginRealm.where<Person>().findFirst()
+        if (person != null) {
+            textView2.text= person.id
+        }
         val newItem = realm.createObject<portDB>(nextId_awards())
         newItem.title = "제목"
         newItem.date = "팀"
