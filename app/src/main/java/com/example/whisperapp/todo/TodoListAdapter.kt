@@ -9,19 +9,21 @@ import io.realm.OrderedRealmCollection
 import io.realm.RealmBaseAdapter
 
 class TodoListAdapter(realmResult: OrderedRealmCollection<Todo>)
-    : RealmBaseAdapter<Todo>(realmResult){
+    : RealmBaseAdapter<Todo>(realmResult){//RealmBaseAdapter 상속
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val vh: ViewHolder
         val view: View
 
         if(convertView==null){
+            //xml 레이아웃 파일을 불러와서 뷰로 전환시킴
             view= LayoutInflater.from(parent?.context).inflate(R.layout.todo_item,parent, false)
             vh=ViewHolder(view)
             view.tag=vh
         }else{
             view=convertView
             vh=view.tag as ViewHolder
+            //view.tag는 Any형이므로 ViewHolder 타입으로 형변환
         }
         if(adapterData!=null){
             val item=adapterData!![position]

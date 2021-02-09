@@ -22,6 +22,8 @@ class RegCommuActivity : AppCompatActivity() {
     lateinit var doneFab_commu : FloatingActionButton
 
     val realm = try {
+        //Realm 인스턴스 얻기
+        //오류에 대배하여 예외처리
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
@@ -39,6 +41,8 @@ class RegCommuActivity : AppCompatActivity() {
         edtContent_commu = findViewById(R.id.edtContent_commu)
         doneFab_commu = findViewById(R.id.doneFab_commu)
 
+        // 인텐트로 id를 전달해서 데이터 베이스의 삽입/변경/삭제를 분기
+        // id=-1 (추가모드)
         val id = intent.getLongExtra("id", -1L)
         if (id == -1L) {
             insertMode_commu()
@@ -47,6 +51,7 @@ class RegCommuActivity : AppCompatActivity() {
         }
     }
 
+    //done버튼 누를 경우 insertTodo_commu함수 실행
     private fun insertMode_commu() {
         doneFab_commu.setOnClickListener { insertTodo_commu() }
     }
@@ -62,10 +67,10 @@ class RegCommuActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        realm.close()
+        realm.close() //realm 해제
     }
 
-    private fun insertTodo_commu() {
+    private fun insertTodo_commu() { //데이터 삽입
         realm.beginTransaction()
 
         val newItem = realm.createObject<CommuDB>(nextId())
@@ -97,6 +102,7 @@ class RegCommuActivity : AppCompatActivity() {
     private fun nextId(): Int {
         val maxId = realm.where<CommuDB>().max("id")
 
+        //<CommuDB>() 테이블의 모든 값을 얻어옴.
         if (maxId != null) {
             return maxId.toInt() + 1
         }

@@ -27,6 +27,8 @@ class EditTodoActivity : AppCompatActivity() {
     lateinit var subEditText: EditText
 
     val realm= try {
+        //Realm 인스턴스 얻기
+        //오류에 대배하여 예외처리
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
@@ -34,6 +36,7 @@ class EditTodoActivity : AppCompatActivity() {
     } catch (ex: RealmMigrationNeededException) {
         Realm.getDefaultInstance()
     } //Realm 인스턴스 얻기
+    //캘린더 객체 생성(오늘 날짜로 초기화됨)
     val calendar: Calendar = java.util.Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,33 +67,37 @@ class EditTodoActivity : AppCompatActivity() {
             datePickText.text = String.format("%d / %d / %d", year, month + 1, dayOfMonth)
         }
     }
+    //추가모드
     private fun insertMode(){
         deleteFab.visibility= View.GONE
         doneFab.setOnClickListener { insertTodo() }
     }
-
+    //삭제모드
     private fun updateMode(id:Long){
+        //id에 해당하는 객체를 화면에 표시
         val todo=realm.where<Todo>().equalTo("id",id).findFirst()!!
         todoEditText.setText(todo.title)
         subEditText.setText(todo.subtitle)
         calendarView.date=todo.date
 
+        //완료 버튼 클릭시 updateTodo() 호출
         doneFab.setOnClickListener { updateTodo(id)}
+        //삭제 버튼 클릭시 deleteTodo() 호출
         deleteFab.setOnClickListener { deleteTodo(id) }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        realm.close()
+        realm.close() //Realm 인스턴스 해제
     }
-    private fun insertTodo(){
-        realm.beginTransaction()
+    private fun insertTodo(){ //데이터베이스 삽입
+        realm.beginTransaction()  //트랜잭션 시작
         val newItem=realm.createObject<Todo>(nextId())
         newItem.title=todoEditText.text.toString()
         newItem.subtitle=subEditText.text.toString()
         newItem.date=calendar.timeInMillis
 
-        realm.commitTransaction()
+        realm.commitTransaction() //트랜잭션 종료
         alert("일정이 저장 되었습니다."){
             yesButton { finish() }
         }.show()

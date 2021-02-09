@@ -17,6 +17,8 @@ class MainCommuActivity : AppCompatActivity() {
 
     lateinit var fab_comu:FloatingActionButton
     val realm = try {
+        //Realm 인스턴스 얻기
+        //오류에 대배하여 예외처리
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
@@ -37,6 +39,7 @@ class MainCommuActivity : AppCompatActivity() {
             startActivity<RegCommuActivity>()
         }
 
+        //데이터베이스 불러오기
         val realmResult = realm.where<CommuDB>().findAll().sort("id", Sort.ASCENDING)
         val adapter= CommuListAdapter(realmResult)
         listView_commu.adapter=adapter
@@ -53,6 +56,6 @@ class MainCommuActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        realm.close()
+        realm.close() //데이터베이스 해제하기
     }
 }

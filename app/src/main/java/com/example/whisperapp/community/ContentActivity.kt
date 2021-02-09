@@ -23,6 +23,8 @@ class ContentActivity : AppCompatActivity() {
     lateinit var nameContentTextView:TextView
 
     val realm1 = try {
+        //Realm 인스턴스 얻기
+        //오류에 대배하여 예외처리
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
@@ -41,6 +43,7 @@ class ContentActivity : AppCompatActivity() {
         commentListView=findViewById(R.id.commentListView)
         nameContentTextView=findViewById(R.id.nameContentTextView)
 
+        //댓글 추가 버튼 클릭 리스너
         button_content_commu.setOnClickListener {
             startActivity<AddCommentActivity>()
         }
@@ -48,6 +51,7 @@ class ContentActivity : AppCompatActivity() {
         val realmResult = realm1.where<Commu_commentDB>().findAll().sort("id", Sort.ASCENDING)
 
 
+        //위의 데이터베이스로 adapter 생성
         val adapter= CommentListAdapter(realmResult)
         commentListView.adapter=adapter
 
@@ -63,6 +67,7 @@ class ContentActivity : AppCompatActivity() {
         }
     }
 
+    //댓글  내용 업데이트
     private fun updateMode_comment(id:Long){
         val comment1=realm1.where<CommuDB>().equalTo("id",id).findFirst()!!
         titlesee_commu.setText(comment1.title)

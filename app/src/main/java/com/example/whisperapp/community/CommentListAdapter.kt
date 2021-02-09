@@ -10,6 +10,7 @@ import io.realm.RealmResults
 
 class CommentListAdapter(realmResult: RealmResults<Commu_commentDB>)
     :RealmBaseAdapter<Commu_commentDB>(realmResult) {
+    //RealmBaseAdapter 상속
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
@@ -17,12 +18,13 @@ class CommentListAdapter(realmResult: RealmResults<Commu_commentDB>)
         val view: View
 
         if(convertView==null){
+            //xml 레이아웃 파일을 불러와서 뷰로 전환시킴
             view=LayoutInflater.from(parent?.context).inflate(R.layout.community_item_content,parent, false)
             vh=ViewHolder_comment(view)
             view.tag=vh
         }else{
             view=convertView
-            vh=view.tag as ViewHolder_comment
+            vh=view.tag as ViewHolder_comment //view.tag는 Any형이므로 ViewHolder 타입으로 형변환
         }
         if(adapterData!=null){
             val item=adapterData!![position]
@@ -32,7 +34,7 @@ class CommentListAdapter(realmResult: RealmResults<Commu_commentDB>)
         return view
     }
 
-    override fun getItemId(position: Int): Long {
+    override fun getItemId(position: Int): Long { //position을 getItemId 통해서 받아와 지정해줌.
         if(adapterData!=null){
             return adapterData!![position].id
         }

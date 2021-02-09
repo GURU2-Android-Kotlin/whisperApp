@@ -18,6 +18,8 @@ class TodoActivity : AppCompatActivity() {
     lateinit var fab:FloatingActionButton
     lateinit var listView: ListView
     val realm = try {
+        //Realm 인스턴스 얻기
+        //오류에 대배하여 예외처리
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
@@ -32,6 +34,8 @@ class TodoActivity : AppCompatActivity() {
 
         listView=findViewById(R.id.listView)
         fab=findViewById(R.id.fab)
+
+        //할 일 추가 버튼 클릭 리스너
         fab.setOnClickListener { view ->
             startActivity<EditTodoActivity>()
         }

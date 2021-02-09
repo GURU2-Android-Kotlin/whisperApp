@@ -28,6 +28,8 @@ class mypageMainActivity : AppCompatActivity() {
     lateinit var app_finish: Button
 
     val loginRealm = try {
+        //Realm 인스턴스 얻기
+        //오류에 대배하여 예외처리
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
@@ -50,6 +52,7 @@ class mypageMainActivity : AppCompatActivity() {
 
         handler = Handler()
 
+        //Realm 데이터베이스 가져오기
         val person=loginRealm.where<Person>().findFirst()
 
         if (person != null) {
@@ -57,6 +60,7 @@ class mypageMainActivity : AppCompatActivity() {
             email_my.text=person.email
         }
 
+        //버튼 클릭시 alert Dialog 발생
         my_appout.setOnClickListener {
             var dialog = AlertDialog.Builder(this)
             dialog.setTitle(" 회원 탈퇴하시겠습니까? ")
@@ -72,7 +76,7 @@ class mypageMainActivity : AppCompatActivity() {
 
             var dialog_listener = object: DialogInterface.OnClickListener{
                 override fun onClick(dialog: DialogInterface?, which: Int) {
-                    when(which){
+                    when(which){ //확인시 삭제
                         DialogInterface.BUTTON_POSITIVE ->
                             toast_p()
                         DialogInterface.BUTTON_NEGATIVE ->
@@ -86,7 +90,7 @@ class mypageMainActivity : AppCompatActivity() {
             dialog.show()
         }
 
-        app_finish.setOnClickListener {
+        app_finish.setOnClickListener {//어플을 종료시킨다.
             finishAffinity()
             System.runFinalization()
             System.exit(0)}
@@ -101,7 +105,7 @@ class mypageMainActivity : AppCompatActivity() {
         deleteItem.deleteFromRealm()
         loginRealm.commitTransaction()
 
-        finishAffinity()
+        finishAffinity() //어플을 종료시키고 intent 전달
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         System.exit(0)
