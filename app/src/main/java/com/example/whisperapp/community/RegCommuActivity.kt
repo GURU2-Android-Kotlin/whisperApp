@@ -23,7 +23,7 @@ class RegCommuActivity : AppCompatActivity() {
 
     val realm = try {
         //Realm 인스턴스 얻기
-        //오류에 대배하여 예외처리
+        //오류에 대비하여 예외처리
         val config = RealmConfiguration.Builder()
             .deleteRealmIfMigrationNeeded()
             .build()
