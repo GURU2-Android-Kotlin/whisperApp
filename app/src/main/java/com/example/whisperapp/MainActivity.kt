@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn_my:ImageButton
     lateinit var todoDateTextView : TextView
     lateinit var todoTitleTextView : TextView
+    lateinit var todoSubtitleTextView : TextView
     lateinit var btn_refresh : ImageButton
     lateinit var textView2:TextView
 
@@ -67,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         btn_my=findViewById(R.id.btn_my)
         todoDateTextView = findViewById(R.id.todoDateTextView)
         todoTitleTextView = findViewById(R.id.todoTitleTextView)
+        todoSubtitleTextView = findViewById(R.id.todoSubtitleTextView)
         textView2=findViewById(R.id.textView2)
         btn_refresh = findViewById(R.id.btn_refresh)
 
@@ -119,6 +121,7 @@ class MainActivity : AppCompatActivity() {
             val newItem10 = realm2.createObject<Todo>(nextId_todo())
             newItem10.date = 1641794919192
             newItem10.title = "정보처리기사 자격증 취득"
+            newItem10.subtitle = "알고리즘 풀기\n백준 코딩테스트하기"
         }
         refreshTodo()   // 메인 페이지에 체크리스트 목록 중 날짜가 가장 빠른 데이터를 보여줌
 
@@ -177,6 +180,7 @@ class MainActivity : AppCompatActivity() {
         if (realmResultmain1 != null) {
             todoDateTextView.text = android.text.format.DateFormat.format("yyyy/MM/dd", realmResultmain1.date)
             todoTitleTextView.text = realmResultmain1.title
+            todoSubtitleTextView.text = realmResultmain1.subtitle
         }
     }
 }
