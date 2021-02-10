@@ -25,7 +25,7 @@
         <LinearLayout
             android:id="@+id/linearLayout1_port"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="55dp"
             android:background="@drawable/edge2"
             android:orientation="horizontal">
 
@@ -40,7 +40,7 @@
             <EditText
                 android:id="@+id/edtTitle_port"
                 android:layout_width="330dp"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:background="@null"
                 android:hint="제목 입력" />
         </LinearLayout>
@@ -96,7 +96,7 @@
         android:id="@+id/linearLayout4_port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edge2"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_port"
@@ -105,8 +105,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:text="내용"
             android:textSize="20sp" />
 
@@ -123,7 +123,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edge2"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4_port"
@@ -132,8 +132,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:text="메모"
             android:textSize="20sp" />
 

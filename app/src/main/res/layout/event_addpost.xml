@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:ems="10"
-                android:hint="스터디 주제 또는 동아리명을 입력하세요"
+                android:hint="스터디 주제 또는 동아리명"
                 android:inputType="textPersonName"
                 android:textSize="18sp" />
         </TableRow>
